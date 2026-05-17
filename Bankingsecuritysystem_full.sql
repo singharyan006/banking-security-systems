@@ -27,3 +27,18 @@ CREATE TABLE USER (
     status    VARCHAR(50)  NOT NULL
         COMMENT 'Active | Blocked | Suspended'
 );
+
+-- 2.2  DEVICE
+CREATE TABLE DEVICE (
+    device_id INT          PRIMARY KEY AUTO_INCREMENT,
+    browser   VARCHAR(100) NOT NULL,
+    os        VARCHAR(100) NOT NULL
+);
+
+-- 2.3  IP_ADDRESS
+CREATE TABLE IP_ADDRESS (
+    ip_id      INT         PRIMARY KEY AUTO_INCREMENT,
+    ip_address VARCHAR(45) NOT NULL,
+    city       VARCHAR(100),
+    country    VARCHAR(100)
+);
