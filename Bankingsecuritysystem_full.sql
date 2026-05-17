@@ -42,3 +42,9 @@ CREATE TABLE IP_ADDRESS (
     city       VARCHAR(100),
     country    VARCHAR(100)
 );
+
+-- 2.4  REFERRER
+CREATE TABLE REFERRER (
+    referrer_id  INT          PRIMARY KEY AUTO_INCREMENT,
+    referrer_url VARCHAR(255) NOT NULL
+);
