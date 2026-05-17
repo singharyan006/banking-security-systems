@@ -48,3 +48,11 @@ CREATE TABLE REFERRER (
     referrer_id  INT          PRIMARY KEY AUTO_INCREMENT,
     referrer_url VARCHAR(255) NOT NULL
 );
+
+-- 2.5  ADMIN
+CREATE TABLE ADMIN (
+    admin_id INT         PRIMARY KEY AUTO_INCREMENT,
+    name     VARCHAR(100) NOT NULL,
+    role     VARCHAR(50)  NOT NULL
+        COMMENT 'Security Analyst | System Admin'
+);
