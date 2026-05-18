@@ -83,3 +83,14 @@ CREATE TABLE SESSION (
     CONSTRAINT fk_session_user
         FOREIGN KEY (user_id) REFERENCES USER (user_id)
 );
+
+-- 3.3  BANK_TRANSACTION  (depends on ACCOUNT)
+--      Named BANK_TRANSACTION to avoid conflict with the SQL keyword TRANSACTION
+CREATE TABLE BANK_TRANSACTION (
+    transaction_id   INT            PRIMARY KEY AUTO_INCREMENT,
+    amount           DECIMAL(15, 2) NOT NULL,
+    transaction_time DATETIME       NOT NULL,
+    account_id       INT            NOT NULL,
+    CONSTRAINT fk_txn_account
+        FOREIGN KEY (account_id) REFERENCES ACCOUNT (account_id)
+);
