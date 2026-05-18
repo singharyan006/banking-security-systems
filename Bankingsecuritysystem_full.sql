@@ -56,3 +56,20 @@ CREATE TABLE ADMIN (
     role     VARCHAR(50)  NOT NULL
         COMMENT 'Security Analyst | System Admin'
 );
+
+
+-- ------------------------------------------------------------
+-- 3. DEPENDENT TABLES (with foreign keys)
+-- ------------------------------------------------------------
+
+-- 3.1  ACCOUNT  (depends on USER)
+CREATE TABLE ACCOUNT (
+    account_id   INT            PRIMARY KEY AUTO_INCREMENT,
+    account_type VARCHAR(50)    NOT NULL
+        COMMENT 'Savings | Current',
+    balance      DECIMAL(15, 2) NOT NULL,
+    created_at   DATETIME       NOT NULL,
+    user_id      INT            NOT NULL,
+    CONSTRAINT fk_account_user
+        FOREIGN KEY (user_id) REFERENCES USER (user_id)
+);
