@@ -73,3 +73,13 @@ CREATE TABLE ACCOUNT (
     CONSTRAINT fk_account_user
         FOREIGN KEY (user_id) REFERENCES USER (user_id)
 );
+
+-- 3.2  SESSION  (depends on USER)
+CREATE TABLE SESSION (
+    session_id  INT      PRIMARY KEY AUTO_INCREMENT,
+    login_time  DATETIME NOT NULL,
+    logout_time DATETIME,                  -- NULL until the user logs out
+    user_id     INT      NOT NULL,
+    CONSTRAINT fk_session_user
+        FOREIGN KEY (user_id) REFERENCES USER (user_id)
+);
