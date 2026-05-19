@@ -94,3 +94,27 @@ CREATE TABLE BANK_TRANSACTION (
     CONSTRAINT fk_txn_account
         FOREIGN KEY (account_id) REFERENCES ACCOUNT (account_id)
 );
+
+-- 3.4  REQUEST_LOG  (weak entity — composite PK; depends on SESSION, DEVICE, IP_ADDRESS, REFERRER)
+CREATE TABLE REQUEST_LOG (
+    session_id   INT          NOT NULL,
+    request_id   INT          NOT NULL,
+    request_time DATETIME     NOT NULL,
+    url_accessed VARCHAR(255) NOT NULL,
+    method       VARCHAR(20)  NOT NULL
+        COMMENT 'GET | POST | PUT | DELETE …',
+    device_id    INT          NOT NULL,
+    ip_id        INT          NOT NULL,
+    referrer_id  INT,                      -- nullable: direct traffic has no referrer
+
+    PRIMARY KEY (session_id, request_id),
+
+    CONSTRAINT fk_reqlog_session
+        FOREIGN KEY (session_id)  REFERENCES SESSION    (session_id),
+    CONSTRAINT fk_reqlog_device
+        FOREIGN KEY (device_id)   REFERENCES DEVICE     (device_id),
+    CONSTRAINT fk_reqlog_ip
+        FOREIGN KEY (ip_id)       REFERENCES IP_ADDRESS (ip_id),
+    CONSTRAINT fk_reqlog_referrer
+        FOREIGN KEY (referrer_id) REFERENCES REFERRER   (referrer_id)
+);
