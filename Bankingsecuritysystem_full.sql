@@ -133,3 +133,11 @@ CREATE TABLE SECURITY_EVENT (
     CONSTRAINT fk_secevent_admin
         FOREIGN KEY (admin_id)   REFERENCES ADMIN   (admin_id)
 );
+
+
+-- ============================================================
+--   DONE — all 10 tables created in dependency order.
+--   Tables: USER, DEVICE, IP_ADDRESS, REFERRER, ADMIN,
+--           ACCOUNT, SESSION, BANK_TRANSACTION,
+--           REQUEST_LOG, SECURITY_EVENT
+-- ============================================================
