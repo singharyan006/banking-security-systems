@@ -118,3 +118,18 @@ CREATE TABLE REQUEST_LOG (
     CONSTRAINT fk_reqlog_referrer
         FOREIGN KEY (referrer_id) REFERENCES REFERRER   (referrer_id)
 );
+
+-- 3.5  SECURITY_EVENT  (depends on SESSION, ADMIN)
+CREATE TABLE SECURITY_EVENT (
+    event_id    INT          PRIMARY KEY AUTO_INCREMENT,
+    event_type  VARCHAR(100) NOT NULL,
+    description VARCHAR(255),
+    risk_level  VARCHAR(20)
+        COMMENT 'Low | Medium | High',
+    session_id  INT          NOT NULL,
+    admin_id    INT          NOT NULL,
+    CONSTRAINT fk_secevent_session
+        FOREIGN KEY (session_id) REFERENCES SESSION (session_id),
+    CONSTRAINT fk_secevent_admin
+        FOREIGN KEY (admin_id)   REFERENCES ADMIN   (admin_id)
+);
