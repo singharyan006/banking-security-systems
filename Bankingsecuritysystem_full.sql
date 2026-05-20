@@ -147,3 +147,14 @@ CREATE TABLE SECURITY_EVENT (
 -- ============================================================
 
 USE BankingSecuritySystem;
+
+
+-- ============================================================
+-- SECTION 1: DML — INSERT DATA
+-- ============================================================
+
+INSERT INTO USER (f_name, l_name, email, phone, password, status)
+VALUES
+    ('Aryan', 'Singh',  'aryan.singh@gmail.com', 9876543210, 'hashed_pass1', 'Active'),
+    ('Riya',  'Sharma', 'riya.sharma@gmail.com', 9123456780, 'hashed_pass2', 'Active'),
+    ('Karan', 'Mehta',  'karan.mehta@gmail.com', 9988776655, 'hashed_pass3', 'Blocked');
