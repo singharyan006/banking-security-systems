@@ -170,3 +170,14 @@ VALUES
     ('192.168.1.1', 'Chennai', 'India'),
     ('172.16.0.5',  'Mumbai',  'India'),
     ('10.0.0.2',    'Delhi',   'India');
+
+INSERT INTO REFERRER (referrer_url)
+VALUES
+    ('https://www.google.com'),
+    ('https://www.bankapp.com/login'),
+    ('https://mail.google.com');
+
+INSERT INTO ADMIN (name, role)
+VALUES
+    ('Rahul Verma', 'Security Analyst'),
+    ('Neha Kapoor', 'System Administrator');
