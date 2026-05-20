@@ -158,3 +158,15 @@ VALUES
     ('Aryan', 'Singh',  'aryan.singh@gmail.com', 9876543210, 'hashed_pass1', 'Active'),
     ('Riya',  'Sharma', 'riya.sharma@gmail.com', 9123456780, 'hashed_pass2', 'Active'),
     ('Karan', 'Mehta',  'karan.mehta@gmail.com', 9988776655, 'hashed_pass3', 'Blocked');
+
+INSERT INTO DEVICE (browser, os)
+VALUES
+    ('Chrome',  'Windows'),
+    ('Safari',  'iOS'),
+    ('Firefox', 'Linux');
+
+INSERT INTO IP_ADDRESS (ip_address, city, country)
+VALUES
+    ('192.168.1.1', 'Chennai', 'India'),
+    ('172.16.0.5',  'Mumbai',  'India'),
+    ('10.0.0.2',    'Delhi',   'India');
