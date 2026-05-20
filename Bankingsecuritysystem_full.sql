@@ -141,3 +141,9 @@ CREATE TABLE SECURITY_EVENT (
 --           ACCOUNT, SESSION, BANK_TRANSACTION,
 --           REQUEST_LOG, SECURITY_EVENT
 -- ============================================================
+-- ============================================================
+--   BANKING SECURITY SYSTEM — ALL QUERIES
+--   Run BankingSecuritySystem_Complete.sql first (DDL + setup)
+-- ============================================================
+
+USE BankingSecuritySystem;
