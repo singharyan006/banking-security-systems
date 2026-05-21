@@ -199,3 +199,10 @@ VALUES
     (2500.00,  '2025-04-01 08:30:00', 1),
     (10000.00, '2025-04-02 10:45:00', 2),
     (1500.00,  '2025-04-03 19:00:00', 3);
+
+INSERT INTO REQUEST_LOG (session_id, request_id, request_time, url_accessed, method, device_id, ip_id, referrer_id)
+VALUES
+    (1, 1, '2025-04-01 08:05:00', '/login',       'POST', 1, 1, 1),
+    (1, 2, '2025-04-01 08:10:00', '/viewAccount', 'GET',  1, 1, 2),
+    (2, 1, '2025-04-02 10:35:00', '/transfer',    'POST', 2, 2, 1),
+    (3, 1, '2025-04-03 18:50:00', '/login',       'POST', 3, 3, 3);
