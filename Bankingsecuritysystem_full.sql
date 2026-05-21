@@ -206,3 +206,10 @@ VALUES
     (1, 2, '2025-04-01 08:10:00', '/viewAccount', 'GET',  1, 1, 2),
     (2, 1, '2025-04-02 10:35:00', '/transfer',    'POST', 2, 2, 1),
     (3, 1, '2025-04-03 18:50:00', '/login',       'POST', 3, 3, 3);
+
+INSERT INTO SECURITY_EVENT (event_type, description, risk_level, session_id, admin_id)
+VALUES
+    ('Suspicious Login',  'Login detected from unknown device',    'High',   3, 1),
+    ('Multiple Requests', 'Unusual number of requests in session', 'Medium', 1, 2);
+
+
