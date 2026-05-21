@@ -181,3 +181,15 @@ INSERT INTO ADMIN (name, role)
 VALUES
     ('Rahul Verma', 'Security Analyst'),
     ('Neha Kapoor', 'System Administrator');
+
+INSERT INTO ACCOUNT (account_type, balance, created_at, user_id)
+VALUES
+    ('Savings', 50000.00,  '2025-01-10 10:30:00', 1),
+    ('Current', 120000.50, '2025-02-15 14:20:00', 2),
+    ('Savings', 30000.75,  '2025-03-05 09:10:00', 3);
+
+INSERT INTO SESSION (login_time, logout_time, user_id)
+VALUES
+    ('2025-04-01 08:00:00', '2025-04-01 09:15:00', 1),
+    ('2025-04-02 10:30:00', '2025-04-02 11:00:00', 2),
+    ('2025-04-03 18:45:00', NULL,                  3);
