@@ -213,3 +213,10 @@ VALUES
     ('Multiple Requests', 'Unusual number of requests in session', 'Medium', 1, 2);
 
 
+-- ============================================================
+-- SECTION 2: CONSTRAINTS
+-- ============================================================
+
+-- Q1: Ensure account balance is non-negative
+ALTER TABLE ACCOUNT
+ADD CONSTRAINT chk_balance CHECK (balance >= 0);
