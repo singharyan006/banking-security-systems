@@ -224,3 +224,8 @@ ADD CONSTRAINT chk_balance CHECK (balance >= 0);
 -- Q2: Ensure email is unique
 ALTER TABLE USER
 ADD CONSTRAINT unique_email UNIQUE (email);
+
+-- Q3: Restrict risk_level to valid values only
+ALTER TABLE SECURITY_EVENT
+ADD CONSTRAINT chk_risk CHECK (risk_level IN ('Low', 'Medium', 'High'));
+
