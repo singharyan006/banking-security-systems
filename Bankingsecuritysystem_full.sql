@@ -220,3 +220,7 @@ VALUES
 -- Q1: Ensure account balance is non-negative
 ALTER TABLE ACCOUNT
 ADD CONSTRAINT chk_balance CHECK (balance >= 0);
+
+-- Q2: Ensure email is unique
+ALTER TABLE USER
+ADD CONSTRAINT unique_email UNIQUE (email);
