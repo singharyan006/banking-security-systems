@@ -242,3 +242,13 @@ SELECT AVG(amount) AS avg_amount FROM BANK_TRANSACTION;
 
 -- Q3: Maximum account balance
 SELECT MAX(balance) AS max_balance FROM ACCOUNT;
+
+
+-- ============================================================
+-- SECTION 4: SET OPERATIONS
+-- ============================================================
+
+-- Q1: Users who have an account (INTERSECT)
+SELECT user_id FROM USER
+INTERSECT
+SELECT user_id FROM ACCOUNT;
