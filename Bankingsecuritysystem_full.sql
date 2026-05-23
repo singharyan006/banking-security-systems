@@ -229,3 +229,13 @@ ADD CONSTRAINT unique_email UNIQUE (email);
 ALTER TABLE SECURITY_EVENT
 ADD CONSTRAINT chk_risk CHECK (risk_level IN ('Low', 'Medium', 'High'));
 
+
+-- ============================================================
+-- SECTION 3: AGGREGATE FUNCTIONS
+-- ============================================================
+
+-- Q1: Total balance across all accounts
+SELECT SUM(balance) AS total_balance FROM ACCOUNT;
+
+-- Q2: Average transaction amount
+SELECT AVG(amount) AS avg_amount FROM BANK_TRANSACTION;
