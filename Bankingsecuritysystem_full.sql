@@ -239,3 +239,6 @@ SELECT SUM(balance) AS total_balance FROM ACCOUNT;
 
 -- Q2: Average transaction amount
 SELECT AVG(amount) AS avg_amount FROM BANK_TRANSACTION;
+
+-- Q3: Maximum account balance
+SELECT MAX(balance) AS max_balance FROM ACCOUNT;
