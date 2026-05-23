@@ -252,3 +252,12 @@ SELECT MAX(balance) AS max_balance FROM ACCOUNT;
 SELECT user_id FROM USER
 INTERSECT
 SELECT user_id FROM ACCOUNT;
+
+-- Q2: Users who do NOT have any account
+SELECT user_id FROM USER
+WHERE user_id NOT IN (SELECT user_id FROM ACCOUNT);
+
+-- Q3: All user IDs from both tables combined (UNION)
+SELECT user_id FROM USER
+UNION
+SELECT user_id FROM ACCOUNT;
