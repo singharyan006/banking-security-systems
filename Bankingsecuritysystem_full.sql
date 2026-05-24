@@ -261,3 +261,22 @@ WHERE user_id NOT IN (SELECT user_id FROM ACCOUNT);
 SELECT user_id FROM USER
 UNION
 SELECT user_id FROM ACCOUNT;
+
+
+-- ============================================================
+-- SECTION 5: SUBQUERIES
+-- ============================================================
+
+-- Q1: Accounts with balance above the average
+SELECT account_id, balance
+FROM   ACCOUNT
+WHERE  balance > (SELECT AVG(balance) FROM ACCOUNT);
+
+-- Q2: Account holding the maximum balance
+SELECT * FROM ACCOUNT
+WHERE  balance = (SELECT MAX(balance) FROM ACCOUNT);
+
+-- Q3: Users who have made at least one transaction
+SELECT DISTINCT user_id
+FROM   ACCOUNT
+WHERE  account_id IN (SELECT account_id FROM BANK_TRANSACTION);
