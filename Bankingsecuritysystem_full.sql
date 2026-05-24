@@ -280,3 +280,13 @@ WHERE  balance = (SELECT MAX(balance) FROM ACCOUNT);
 SELECT DISTINCT user_id
 FROM   ACCOUNT
 WHERE  account_id IN (SELECT account_id FROM BANK_TRANSACTION);
+
+
+-- ============================================================
+-- SECTION 6: JOINS
+-- ============================================================
+
+-- Q1: User first name with their account balance
+SELECT U.f_name, A.balance
+FROM   USER U
+JOIN   ACCOUNT A ON U.user_id = A.user_id;
