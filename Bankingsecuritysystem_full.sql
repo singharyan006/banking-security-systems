@@ -290,3 +290,15 @@ WHERE  account_id IN (SELECT account_id FROM BANK_TRANSACTION);
 SELECT U.f_name, A.balance
 FROM   USER U
 JOIN   ACCOUNT A ON U.user_id = A.user_id;
+
+-- Q2: User name with their transaction amounts
+SELECT U.f_name, T.amount
+FROM   USER U
+JOIN   ACCOUNT A          ON U.user_id    = A.user_id
+JOIN   BANK_TRANSACTION T ON A.account_id = T.account_id;
+
+-- Q3: Session ID with the browser used in that session
+SELECT S.session_id, D.browser
+FROM   SESSION S
+JOIN   REQUEST_LOG R ON S.session_id = R.session_id
+JOIN   DEVICE D      ON R.device_id  = D.device_id;
