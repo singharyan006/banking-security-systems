@@ -302,3 +302,14 @@ SELECT S.session_id, D.browser
 FROM   SESSION S
 JOIN   REQUEST_LOG R ON S.session_id = R.session_id
 JOIN   DEVICE D      ON R.device_id  = D.device_id;
+
+
+-- ============================================================
+-- SECTION 7: VIEWS
+-- ============================================================
+
+-- Q1: View — high-risk security events
+CREATE VIEW high_risk AS
+SELECT * FROM SECURITY_EVENT WHERE risk_level = 'High';
+
+SELECT * FROM high_risk;
