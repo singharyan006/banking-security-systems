@@ -313,3 +313,10 @@ CREATE VIEW high_risk AS
 SELECT * FROM SECURITY_EVENT WHERE risk_level = 'High';
 
 SELECT * FROM high_risk;
+
+-- Q2: View — user and account summary
+CREATE VIEW user_accounts AS
+SELECT U.f_name, A.account_id, A.balance
+FROM   USER U JOIN ACCOUNT A ON U.user_id = A.user_id;
+
+SELECT * FROM user_accounts;
