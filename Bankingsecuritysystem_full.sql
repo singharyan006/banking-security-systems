@@ -320,3 +320,9 @@ SELECT U.f_name, A.account_id, A.balance
 FROM   USER U JOIN ACCOUNT A ON U.user_id = A.user_id;
 
 SELECT * FROM user_accounts;
+
+-- Q3: View — transaction history
+CREATE VIEW transaction_view AS
+SELECT account_id, amount, transaction_time FROM BANK_TRANSACTION;
+
+SELECT * FROM transaction_view;
