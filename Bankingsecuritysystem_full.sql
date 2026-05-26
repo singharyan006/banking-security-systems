@@ -326,3 +326,20 @@ CREATE VIEW transaction_view AS
 SELECT account_id, amount, transaction_time FROM BANK_TRANSACTION;
 
 SELECT * FROM transaction_view;
+
+
+-- ============================================================
+-- SECTION 8: STORED PROCEDURES (with Exception Handling)
+-- ============================================================
+
+-- Q1: Get account balance by account ID
+DELIMITER //
+CREATE PROCEDURE get_balance(IN acc_id INT)
+BEGIN
+    DECLARE EXIT HANDLER FOR SQLEXCEPTION
+        SELECT 'Error: invalid account ID' AS message;
+    SELECT balance FROM ACCOUNT WHERE account_id = acc_id;
+END //
+DELIMITER ;
+
+CALL get_balance(1);
