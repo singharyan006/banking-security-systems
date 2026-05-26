@@ -343,3 +343,15 @@ END //
 DELIMITER ;
 
 CALL get_balance(1);
+
+-- Q2: Count transactions for a given account
+DELIMITER //
+CREATE PROCEDURE count_transactions(IN acc_id INT)
+BEGIN
+    SELECT COUNT(*) AS transaction_count
+    FROM   BANK_TRANSACTION
+    WHERE  account_id = acc_id;
+END //
+DELIMITER ;
+
+CALL count_transactions(1);
