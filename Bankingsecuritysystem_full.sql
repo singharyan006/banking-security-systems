@@ -355,3 +355,15 @@ END //
 DELIMITER ;
 
 CALL count_transactions(1);
+
+-- Q3: List all sessions ordered by login time
+DELIMITER //
+CREATE PROCEDURE list_sessions()
+BEGIN
+    SELECT session_id, login_time, logout_time, user_id
+    FROM   SESSION
+    ORDER  BY login_time;
+END //
+DELIMITER ;
+
+CALL list_sessions();
