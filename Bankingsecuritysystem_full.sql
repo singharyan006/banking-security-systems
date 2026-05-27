@@ -367,3 +367,24 @@ END //
 DELIMITER ;
 
 CALL list_sessions();
+
+
+-- ============================================================
+-- SECTION 9: FUNCTIONS (with Exception Handling)
+-- ============================================================
+
+-- Q1: Return total transaction count for an account
+DELIMITER //
+CREATE FUNCTION total_transactions(acc_id INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE total INT DEFAULT 0;
+    SELECT COUNT(*) INTO total
+    FROM   BANK_TRANSACTION
+    WHERE  account_id = acc_id;
+    RETURN total;
+END //
+DELIMITER ;
+
+SELECT total_transactions(2);
