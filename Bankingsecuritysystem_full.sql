@@ -402,3 +402,17 @@ END //
 DELIMITER ;
 
 SELECT user_status(3);
+
+-- Q3: Return total number of accounts owned by a user
+DELIMITER //
+CREATE FUNCTION total_accounts(uid INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+    DECLARE cnt INT DEFAULT 0;
+    SELECT COUNT(*) INTO cnt FROM ACCOUNT WHERE user_id = uid;
+    RETURN cnt;
+END //
+DELIMITER ;
+
+SELECT total_accounts(1);
