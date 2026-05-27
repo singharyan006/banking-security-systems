@@ -388,3 +388,17 @@ END //
 DELIMITER ;
 
 SELECT total_transactions(2);
+
+-- Q2: Return the status of a user
+DELIMITER //
+CREATE FUNCTION user_status(uid INT)
+RETURNS VARCHAR(50)
+DETERMINISTIC
+BEGIN
+    DECLARE st VARCHAR(50) DEFAULT 'Not Found';
+    SELECT status INTO st FROM USER WHERE user_id = uid;
+    RETURN st;
+END //
+DELIMITER ;
+
+SELECT user_status(3);
