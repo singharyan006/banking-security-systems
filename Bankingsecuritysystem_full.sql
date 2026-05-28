@@ -434,3 +434,13 @@ BEGIN
     END IF;
 END //
 DELIMITER ;
+
+-- Q2: Auto-set login_time to current timestamp on new session
+DELIMITER //
+CREATE TRIGGER trg_login
+BEFORE INSERT ON SESSION
+FOR EACH ROW
+BEGIN
+    SET NEW.login_time = NOW();
+END //
+DELIMITER ;
