@@ -444,3 +444,16 @@ BEGIN
     SET NEW.login_time = NOW();
 END //
 DELIMITER ;
+
+-- Q3: Prevent NULL or empty email on user insert
+DELIMITER //
+CREATE TRIGGER trg_email
+BEFORE INSERT ON USER
+FOR EACH ROW
+BEGIN
+    IF NEW.email IS NULL OR NEW.email = '' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Email address is required.';
+    END IF;
+END //
+DELIMITER ;
