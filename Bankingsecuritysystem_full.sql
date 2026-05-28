@@ -457,3 +457,29 @@ BEGIN
     END IF;
 END //
 DELIMITER ;
+
+
+-- ============================================================
+-- SECTION 11: CURSORS
+-- ============================================================
+
+-- Q1: Iterate and display all user first names
+DELIMITER //
+CREATE PROCEDURE list_users()
+BEGIN
+    DECLARE done  INT          DEFAULT 0;
+    DECLARE uname VARCHAR(100);
+    DECLARE cur   CURSOR FOR SELECT f_name FROM USER;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN cur;
+    read_loop: LOOP
+        FETCH cur INTO uname;
+        IF done THEN LEAVE read_loop; END IF;
+        SELECT uname AS first_name;
+    END LOOP;
+    CLOSE cur;
+END //
+DELIMITER ;
+
+CALL list_users();
