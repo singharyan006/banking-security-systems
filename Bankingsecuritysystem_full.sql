@@ -483,3 +483,24 @@ END //
 DELIMITER ;
 
 CALL list_users();
+
+-- Q2: Iterate and display all account balances
+DELIMITER //
+CREATE PROCEDURE cursor_balance()
+BEGIN
+    DECLARE done INT           DEFAULT 0;
+    DECLARE bal  DECIMAL(15,2);
+    DECLARE cur  CURSOR FOR SELECT balance FROM ACCOUNT;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN cur;
+    read_loop: LOOP
+        FETCH cur INTO bal;
+        IF done THEN LEAVE read_loop; END IF;
+        SELECT bal AS account_balance;
+    END LOOP;
+    CLOSE cur;
+END //
+DELIMITER ;
+
+CALL cursor_balance();
