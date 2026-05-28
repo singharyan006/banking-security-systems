@@ -416,3 +416,21 @@ END //
 DELIMITER ;
 
 SELECT total_accounts(1);
+
+
+-- ============================================================
+-- SECTION 10: TRIGGERS
+-- ============================================================
+
+-- Q1: Reject transaction amounts that are zero or negative
+DELIMITER //
+CREATE TRIGGER trg_check_amount
+BEFORE INSERT ON BANK_TRANSACTION
+FOR EACH ROW
+BEGIN
+    IF NEW.amount <= 0 THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Transaction amount must be positive.';
+    END IF;
+END //
+DELIMITER ;
