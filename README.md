@@ -216,6 +216,7 @@ If you want to explore the project, clone the repo and run it locally using the 
 | MySQL 8.0 | Database engine |
 | Draw.io | ER diagram design |
 | SQL | Query language |
+| HTML | Front-end design |
 | GitHub | Version control |
 
 ---
