@@ -100,3 +100,32 @@ SOURCE BankingSecuritySystem_ViewAll.sql;
 ```
 
 ---
+
+## 📋 Queries Covered
+
+| Section | Topics |
+|---------|--------|
+| DDL | `CREATE DATABASE`, `CREATE TABLE` with all constraints |
+| DML | `INSERT INTO` for all 10 tables |
+| Constraints | `CHECK`, `UNIQUE` via `ALTER TABLE` |
+| Aggregates | `SUM`, `AVG`, `MAX` |
+| Set Operations | `UNION`, `INTERSECT`, `NOT IN` |
+| Subqueries | Nested `SELECT` with `WHERE` conditions |
+| Joins | `INNER JOIN` across multiple tables |
+| Views | `CREATE VIEW` for reusable query results |
+| Stored Procedures | `CREATE PROCEDURE` with exception handling |
+| Functions | `CREATE FUNCTION` with `DETERMINISTIC` flag |
+| Triggers | `BEFORE INSERT` triggers with `SIGNAL SQLSTATE` |
+| Cursors | Row-by-row iteration with `FETCH` loop |
+
+---
+
+## 🔑 Key Design Decisions
+
+- **`BANK_TRANSACTION`** instead of `TRANSACTION` — `TRANSACTION` is a reserved SQL keyword and would cause syntax errors
+- **`REQUEST_LOG`** uses a composite primary key `(session_id, request_id)` — it is a weak entity whose existence depends on `SESSION`
+- **`referrer_id`** in `REQUEST_LOG` is nullable — direct traffic (no referrer) is a valid case
+- Tables are created in **dependency order** — independent tables first, then those with foreign keys — so no FK references a non-existent table
+- All foreign keys use **named constraints** (e.g. `fk_account_user`) for easier debugging
+
+---
