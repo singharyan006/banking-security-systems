@@ -7,5 +7,3 @@ node_modules/
 dist/
 build/
 .DS_Store
-*.docx
-DBMS_Report_extracted.txt
