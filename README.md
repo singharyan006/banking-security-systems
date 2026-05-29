@@ -217,6 +217,7 @@ If you want to explore the project, clone the repo and run it locally using the 
 | Draw.io | ER diagram design |
 | SQL | Query language |
 | HTML | Front-end design |
+| Flask | Database-connectivity |
 | GitHub | Version control |
 
 ---
