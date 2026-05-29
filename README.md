@@ -42,3 +42,61 @@ BankingSecuritySystem/
 ```
 
 ---
+
+## 🗃️ Database Schema
+
+The database consists of **10 tables**:
+
+| # | Table | Description |
+|---|-------|-------------|
+| 1 | `USER` | Registered banking customers |
+| 2 | `ACCOUNT` | Bank accounts owned by users |
+| 3 | `SESSION` | User login sessions |
+| 4 | `BANK_TRANSACTION` | Financial transactions on accounts |
+| 5 | `DEVICE` | Browser and OS used during access |
+| 6 | `IP_ADDRESS` | IP address with city and country |
+| 7 | `REFERRER` | External sources directing users to the portal |
+| 8 | `REQUEST_LOG` | Every HTTP request made during a session *(weak entity)* |
+| 9 | `SECURITY_EVENT` | Security alerts triggered by suspicious activity |
+| 10 | `ADMIN` | Administrators managing security events |
+
+### Relationships at a Glance
+
+```
+USER ──(1:N)──> ACCOUNT ──(1:N)──> BANK_TRANSACTION
+USER ──(1:N)──> SESSION ──(1:N)──> REQUEST_LOG
+                                        ├──> DEVICE
+                                        ├──> IP_ADDRESS
+                                        └──> REFERRER
+SESSION ──(1:N)──> SECURITY_EVENT <──(N:1)── ADMIN
+```
+
+---
+
+## 🚀 How to Run
+
+### Prerequisites
+- MySQL 8.0+ installed
+- MySQL command line or a client like **MySQL Workbench** / **DBeaver**
+
+### Step 1 — Set up the full database
+```bash
+mysql -u root -p < BankingSecuritySystem_FULL.sql
+```
+This will:
+- Create the `BankingSecuritySystem` database
+- Create all 10 tables in the correct dependency order
+- Insert sample data into every table
+- Run all queries (constraints, aggregates, joins, views, procedures, functions, triggers, cursors)
+
+### Step 2 — View all tables and their data
+```bash
+mysql -u root -p < BankingSecuritySystem_ViewAll.sql
+```
+Or if you're already inside the MySQL shell:
+```sql
+SOURCE BankingSecuritySystem_FULL.sql;
+SOURCE BankingSecuritySystem_ViewAll.sql;
+```
+
+---
