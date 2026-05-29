@@ -129,3 +129,16 @@ SOURCE BankingSecuritySystem_ViewAll.sql;
 - All foreign keys use **named constraints** (e.g. `fk_account_user`) for easier debugging
 
 ---
+
+## 🛠️ Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| MySQL 8.0 | Database engine |
+| Draw.io | ER diagram design |
+| SQL | Query language |
+| GitHub | Version control |
+
+---
+
+*SRM Institute of Science and Technology — May 2026*
