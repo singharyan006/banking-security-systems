@@ -504,3 +504,24 @@ END //
 DELIMITER ;
 
 CALL cursor_balance();
+
+-- Q3: Iterate and display all transaction amounts
+DELIMITER //
+CREATE PROCEDURE cursor_transactions()
+BEGIN
+    DECLARE done INT           DEFAULT 0;
+    DECLARE amt  DECIMAL(15,2);
+    DECLARE cur  CURSOR FOR SELECT amount FROM BANK_TRANSACTION;
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    OPEN cur;
+    read_loop: LOOP
+        FETCH cur INTO amt;
+        IF done THEN LEAVE read_loop; END IF;
+        SELECT amt AS transaction_amount;
+    END LOOP;
+    CLOSE cur;
+END //
+DELIMITER ;
+
+CALL cursor_transactions();
